@@ -8,8 +8,6 @@ Integration steps:
 
 ![EEZ Studio Project Editor](EEZ_Studio.png)
 
-
-![alt text](image.png)
 - Build the project source code files:
 
 ![alt text](EEZ_Studio_Build.png)
