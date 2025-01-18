@@ -4,7 +4,7 @@
 
 Integration steps:
 
-- Open `counter.eez-project` in the [EEZ Studio](https://github.com/eez-open/studio/releases)
+- Open `smart_home_low_res.eez-project` in the [EEZ Studio](https://github.com/eez-open/studio/releases)
 
 ![EEZ Studio Project Editor](EEZ_Studio.png)
 
