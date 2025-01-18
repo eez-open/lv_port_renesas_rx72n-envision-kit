@@ -15,6 +15,21 @@
 #include "user_task.h"
 #include "board_init.h"
 
+#include "ui/ui.h"
+#include "ui/screens.h"
+
+void ___dso_handle() {
+}
+
+void __dso_handle() {
+}
+
+void my_assert() {
+	int i = 0;
+    while (1) {
+    	i++;
+    }
+}
 
 void timer_tick_callback(void * pdata)
 {
@@ -48,9 +63,11 @@ void main_task_user(void *pvParameters)
 	lv_demo_stress();
 #endif
 
-#if (1 == LV_USE_DEMO_WIDGETS && 0 == LV_USE_DEMO_BENCHMARK)
+#if (0 == LV_USE_DEMO_WIDGETS && 0 == LV_USE_DEMO_BENCHMARK)
 	lv_demo_widgets();
 #endif
+
+	ui_init();
 
 	ret = R_CMT_CreatePeriodic(1000, timer_tick_callback, &channel);
 	if (false == ret)
@@ -61,7 +78,8 @@ void main_task_user(void *pvParameters)
 	while(1)
 	{
 		lv_timer_handler();
-		vTaskDelay (1);
+		ui_tick();
+		vTaskDelay(1);
 	}
 
 }

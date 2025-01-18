@@ -17,6 +17,10 @@
 #ifndef LV_CONF_H
 #define LV_CONF_H
 
+#if !defined(__ASSEMBLY__)
+extern void my_assert();
+#endif
+
 /*If you need to include anything here, do it inside the `__ASSEMBLY__` guard */
 #if  0 && defined(__ASSEMBLY__)
 #include "my_include.h"
@@ -47,7 +51,7 @@
 
 #if LV_USE_STDLIB_MALLOC == LV_STDLIB_BUILTIN
     /*Size of the memory available for `lv_malloc()` in bytes (>= 2kB)*/
-    #define LV_MEM_SIZE (72 * 1024U)          /*[bytes]*/
+    #define LV_MEM_SIZE (384 * 1024)          /*[bytes]*/
 
     /*Size of the memory expand for `lv_malloc()` in bytes*/
     #define LV_MEM_POOL_EXPAND_SIZE 0
@@ -169,7 +173,7 @@
 #endif
 
 /* Use Renesas Dave2D on RA  platforms. */
-#define LV_USE_DRAW_DAVE2D 1
+#define LV_USE_DRAW_DAVE2D 0
 
 /* Draw using cached SDL textures*/
 #define LV_USE_DRAW_SDL 0
@@ -208,7 +212,7 @@
  *-----------*/
 
 /*Enable the log module*/
-#define LV_USE_LOG 0
+#define LV_USE_LOG 1
 #if LV_USE_LOG
 
     /*How important log should be added:
@@ -259,7 +263,8 @@
 
 /*Add a custom handler when assert happens e.g. to restart the MCU*/
 #define LV_ASSERT_HANDLER_INCLUDE <stdint.h>
-#define LV_ASSERT_HANDLER while(1);   /*Halt by default*/
+
+#define LV_ASSERT_HANDLER my_assert();   /*Halt by default*/
 
 /*-------------
  * Debug

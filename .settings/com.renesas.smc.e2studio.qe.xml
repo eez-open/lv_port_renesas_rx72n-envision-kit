@@ -35,7 +35,7 @@
     <Segment id="Device">
         <Setting id="Series" value="RX700"/>
         <Setting id="Group" value="RX72N"/>
-        <Setting id="Board" value="EnvisionKitRX72N (V1.13)"/>
+        <Setting id="Board" value="EnvisionKitRX72N"/>
         <Setting id="PartNo" value="R5F572NNHxFB"/>
         <Setting id="PinCount" value="144"/>
     </Segment>

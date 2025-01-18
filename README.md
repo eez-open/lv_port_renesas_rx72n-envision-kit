@@ -1,3 +1,51 @@
+# EEZ Studio example with Renesas RX72N Envision Kit and LVGL
+
+![Renesas RX72N Envision Kit Showing EEZ Studio Application](RX72N_SmartHomeApp.png)
+
+Integration steps:
+
+- Open `counter.eez-project` in the [EEZ Studio](https://github.com/eez-open/studio/releases)
+
+![EEZ Studio Project Editor](EEZ_Studio.png)
+
+
+![alt text](image.png)
+- Build the project source code files:
+
+![alt text](EEZ_Studio_Build.png)
+
+Source code files are generated inside `src/ui` folder.
+
+- Add `ui_init()` and `ui_tick()` in `src/LVGL_thread_entry.c`
+
+```
+#include "ui/ui.h" // Add this!
+
+// ...
+
+void LVGL_thread_entry(void *pvParameters)
+{
+    lv_init();
+    board_init();
+
+    ui_init(); // Add this!
+
+    // ...
+    // Comment out LVGL demo
+    // ...
+
+    while (1)
+    {
+        lv_timer_handler();
+
+        ui_tick(); // Add this!
+
+        vTaskDelay (1);
+    }
+}
+```
+
+
 # LVGL ported to Renesas RX72N Envision Kit
 
 ## Overview
