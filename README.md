@@ -1,6 +1,6 @@
 # EEZ Studio example with Renesas RX72N Envision Kit and LVGL
 
-![Renesas RX72N Envision Kit Showing EEZ Studio Application](RX72N_SmartHomeApp.png)
+![Renesas RX72N Envision Kit Showing EEZ Studio Application](RX72N_SmartHomeApp.jpg)
 
 Integration steps:
 
